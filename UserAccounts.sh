@@ -1,13 +1,15 @@
-# ===================================================================== #
-# This script filters default "/bin/bash" shell from "/etc/passw" file  #
-# ===================================================================== #
+# ============================================================================== #
+# This script filters users with "/bin/bash" login shell from "/etc/passw" file  #
+# Created by Anna Garay on 14 June 2020                                        #
+# ===============================================================================#
 #!/bin/bash
 #set x
 
 #filters login shell with default "/bin/bash" shell
 awk "/bash/" /etc/passwd > result.txt
 
-echo "Details of "/bin/bash" login shell from "/etc/passwd" file:"
+#prints output of result.txt file based on keyword "bash"
+echo "User Details with "/bin/bash" login shell from "/etc/passwd" file:"
 awk 'BEGIN {
         FS=":";
         print("-----------------------------------------------------------------------------------------------------------------------------------");
@@ -21,5 +23,6 @@ awk 'BEGIN {
     print("-----------------------------------------------------------------------------------------------------------------------------------");
 }' result.txt
 
-read -t 5 -p " "
+#wait 3secs before exit
+read -t 3 -p " "
 
